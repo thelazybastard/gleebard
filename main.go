@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 )
@@ -11,4 +12,23 @@ func main() {
 		return
 	}
 
+	bot := Bot{100, 100}
+
+	scanner := bufio.NewScanner(os.Stdin)
+
+	var gameLoop bool
+
+	for {
+		var input string
+		if scanner.Scan() {
+			input = scanner.Text()
+		}
+
+		gameLoop = bot.converse(input)
+
+		if !gameLoop {
+			break
+		}
+
+	}
 }
