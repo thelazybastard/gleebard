@@ -24,6 +24,10 @@ func main() {
 			input = scanner.Text()
 		}
 
+		if err := scanner.Err(); err != nil {
+			fmt.Fprintln(os.Stderr, "Error reading input. Try again later!:", err)
+		}
+
 		gameLoop = bot.converse(input)
 
 		if !gameLoop {
