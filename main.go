@@ -12,11 +12,9 @@ func main() {
 		return
 	}
 
-	bot := Bot{100, 100}
+	bot := Bot{100, 0}
 
 	scanner := bufio.NewScanner(os.Stdin)
-
-	var gameLoop bool
 
 	for {
 		var input string
@@ -28,11 +26,12 @@ func main() {
 			fmt.Fprintln(os.Stderr, "Error reading input. Try again later!:", err)
 		}
 
-		gameLoop = bot.converse(input)
+		resp, gameLoop := bot.converse(input)
 
 		if !gameLoop {
 			break
 		}
 
+		fmt.Println(resp)
 	}
 }

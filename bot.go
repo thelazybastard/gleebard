@@ -11,12 +11,29 @@ type Bot struct {
 }
 
 func (bot *Bot) converse(input string) (string, bool) {
-	dialogueSet := script[check_input(input)]
+	mapKey := check_input(input)
+	dialogueSet := script[mapKey]
 
 	randomChoice := rand.IntN(len(dialogueSet))
 	response := dialogueSet[randomChoice]
+	continueGame := true
 
-	return response, true
+	switch mapKey {
+	case "USER_BLOODTHIRSTY":
+		bot.Health -= 10
+	case "USER_HEAL":
+		bot.Health += 10
+	case "MINIGAME_WIN", "SOLVED_RIDDLE":
+		bot.Annoyance += 10
+	case "COMPLIMENT":
+		bot.Annoyance -= 10
+	}
+
+	if mapKey == "END" || bot.Health == 0 || bot.Annoyance == 0 {
+		continueGame = false
+	}
+
+	return response, continueGame
 }
 
 func check_input(input string) string {

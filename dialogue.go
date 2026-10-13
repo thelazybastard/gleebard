@@ -151,6 +151,16 @@ var script = map[string][]string{
 		"",
 		"",
 	},
+	"COMPLIMENT": {
+		"",
+		"",
+		"",
+		"",
+		"",
+		"",
+		"",
+		"",
+	},
 	"UNKNOWN": {
 		"",
 		"",
