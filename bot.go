@@ -1,8 +1,8 @@
 package main
 
 import (
+	"math/rand/v2"
 	"slices"
-	"strings"
 )
 
 type Bot struct {
@@ -10,14 +10,13 @@ type Bot struct {
 	Annoyance int
 }
 
-func (bot *Bot) converse(input string) bool {
-	if strings.Contains(input, "end") {
-		return false
-	}
+func (bot *Bot) converse(input string) (string, bool) {
+	dialogueSet := script[check_input(input)]
 
-	mapKey := check_input(input)
+	randomChoice := rand.IntN(len(dialogueSet))
+	response := dialogueSet[randomChoice]
 
-	return true
+	return response, true
 }
 
 func check_input(input string) string {
