@@ -2,14 +2,14 @@ package main
 
 var script = map[string][]string{
 	"USER_HAPPY": {
-		"",
-		"",
-		"",
-		"",
-		"",
-		"",
-		"",
-		"",
+		"GLAD TO SE IT",
+		"GLAD TO SE IT",
+		"G:AF TO SE",
+		"sdsdsd",
+		"sds",
+		"sdsd",
+		"sdsd",
+		"sdsdsd",
 	},
 	"USER_SAD": {
 		"",

@@ -29,7 +29,7 @@ func (bot *Bot) converse(input string) (string, bool) {
 		bot.Annoyance -= 10
 	}
 
-	if mapKey == "END" || bot.Health == 0 || bot.Annoyance == 0 {
+	if mapKey == "END" || bot.Health == 0 || bot.Annoyance == 100 {
 		continueGame = false
 	}
 
@@ -43,5 +43,5 @@ func check_input(input string) string {
 		}
 	}
 
-	return "UNKNOWN"
+	return "USER_HAPPY"
 }
