@@ -3,6 +3,7 @@ package main
 import (
 	"math/rand/v2"
 	"slices"
+	"strings"
 )
 
 type Bot struct {
@@ -37,9 +38,11 @@ func (bot *Bot) converse(input string) (string, bool) {
 }
 
 func check_input(input string) string {
-	for key, value := range script {
-		if slices.Contains(value, input) {
-			return key
+	for key, value := range userInput {
+		for word := range strings.SplitSeq(input, " ") {
+			if slices.Contains(value, word) {
+				return key
+			}
 		}
 	}
 
