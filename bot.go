@@ -43,5 +43,5 @@ func check_input(input string) string {
 		}
 	}
 
-	return "USER_HAPPY"
+	return "UNKNOWN"
 }
